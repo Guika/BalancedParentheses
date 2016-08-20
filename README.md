@@ -1,12 +1,13 @@
 # BalancedParentheses
 //Code in C to check balanced parentheses(using stack)
 #include<stdio.h>
+#include<string.h>
+int A[99],top=-1;
 void Push(int);
 void Pop();
-int top();
+int gettop();
 int isEmpty();
 int AreBal(char[],int)
-int A[99],top=-1;
 int main()
 {
   int l=0;
@@ -14,7 +15,7 @@ int main()
   printf("Enter a string:");
   gets(str);
   l=strlen(str);
-  if(AreBal(str,l)
+  if(AreBal(str,l))
   printf("Balanced");
   else printf("Not balanced");
   return 0;
@@ -27,7 +28,7 @@ void Pop()
 {
   top--;
 }
-int top()
+int gettop()
 {
   return top;
 }
@@ -48,7 +49,7 @@ int AreBal(char *exp,int length)
   {
      if( isEmpty()==1)
      return 0;
-     else if((exp[i]==')'&& top()=='(') || (exp[i]=='}'&& top()=='{') || (exp[i]==']'&& top()=='['))
+     else if((exp[i]==')'&& gettop()=='(') || (exp[i]=='}'&& gettop()=='{') || (exp[i]==']'&& gettop()=='['))
      Pop();
    } 
 }
