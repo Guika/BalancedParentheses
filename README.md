@@ -7,7 +7,7 @@ void Push(int);
 void Pop();
 int gettop();
 int isEmpty();
-int AreBal(char[],int)
+void AreBal(char[],int)
 int main()
 {
   int l=0;
@@ -15,9 +15,9 @@ int main()
   printf("Enter a string:");
   gets(str);
   l=strlen(str);
-  if(AreBal(str,l))
+  if(top==-1)
   printf("Balanced");
-  else printf("Not balanced");
+  else printf("Not Balanced");
   return 0;
 }
 void Push(int x)
@@ -38,7 +38,7 @@ int isEmpty()
   return 1;
   else return 0;
 }
-int AreBal(char *exp,int length)
+void AreBal(char *exp,int length)
 {
   int i;
   for(i=0;i<length;i++)
@@ -48,10 +48,12 @@ int AreBal(char *exp,int length)
   if(exp[i]==')' || exp[i]=='}' || exp[i]==']')
   {
      if( isEmpty()==1)
-     return 0;
+     break;
      else if((exp[i]==')'&& gettop()=='(') || (exp[i]=='}'&& gettop()=='{') || (exp[i]==']'&& gettop()=='['))
      Pop();
+     else break;
    } 
+   
 }
     
   
